@@ -303,14 +303,12 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - LeetCode for providing the platform
 - The open-source community for inspiration and tools
 
 ## 📧 Contact
-
-Saachi - [Your Email]
 
 Project Link: [https://github.com/yourusername/swe-prep-extension](https://github.com/yourusername/swe-prep-extension)
 
