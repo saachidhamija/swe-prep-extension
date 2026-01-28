@@ -1,0 +1,48 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  settingsJson String @default("{}")
+
+  events Event[]
+  plans  Plan[]
+}
+
+model Event {
+  id        String   @id @default(cuid())
+  userId    String
+  timestamp DateTime @default(now())
+  type      String
+
+  /// We store raw event payload JSON (metadata only; no full solutions or editorial text).
+  payloadJson String
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, timestamp])
+}
+
+model Plan {
+  id          String   @id @default(cuid())
+  userId      String
+  generatedAt DateTime @default(now())
+
+  /// Plan JSON blob (time blocks + tasks).
+  daysJson String
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, generatedAt])
+}
+

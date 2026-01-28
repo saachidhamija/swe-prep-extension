@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interview Prep Autopilot</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 350px;
+      min-height: 400px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      padding: 16px;
+      color: rgba(255, 255, 255, 0.92);
+      background:
+        radial-gradient(520px 320px at 16% 18%, rgba(255, 77, 141, 0.12) 0%, rgba(255, 77, 141, 0.00) 60%),
+        radial-gradient(520px 320px at 84% 14%, rgba(10, 43, 99, 0.75) 0%, rgba(10, 43, 99, 0.00) 65%),
+        linear-gradient(135deg, #050818 0%, #071b3a 45%, #0a2b63 100%);
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .header h1 {
+      font-size: 18px;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+
+    .header p {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .section {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    .section-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.92);
+      margin-bottom: 12px;
+    }
+
+    .task-item {
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+    }
+
+    .task-item:last-child {
+      border-bottom: none;
+    }
+
+    .task-name {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.92);
+      margin-bottom: 4px;
+    }
+
+    .task-meta {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.68);
+    }
+
+    .stats {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 12px;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 20px;
+      font-weight: 600;
+      color: #ffd166;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.68);
+      margin-top: 4px;
+    }
+
+    .button {
+      width: 100%;
+      padding: 10px;
+      background: rgba(255, 209, 102, 0.14);
+      color: #ffd166;
+      border: 1px solid rgba(255, 209, 102, 0.25);
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+      margin-top: 12px;
+    }
+
+    .button:hover {
+      background: rgba(255, 209, 102, 0.20);
+    }
+
+    .button:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 20px;
+      color: rgba(255, 255, 255, 0.66);
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Interview Prep Autopilot</h1>
+    <p>Today's Plan</p>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Today's Tasks</div>
+    <div id="tasks-container">
+      <div class="empty-state">No plan configured yet. Set up your plan in the dashboard.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Progress</div>
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-value" id="solved-count">0</div>
+        <div class="stat-label">Solved</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value" id="streak-days">0</div>
+        <div class="stat-label">Day Streak</div>
+      </div>
+    </div>
+  </div>
+
+  <button class="button" id="open-dashboard">Open Dashboard</button>
+
+  <!-- Vite entrypoint -->
+  <script type="module" src="/src/popup/popup.ts"></script>
+</body>
+</html>

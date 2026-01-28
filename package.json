@@ -1,0 +1,27 @@
+{
+  "name": "swe-prep-extension",
+  "version": "0.1.0",
+  "description": "Interview Prep Autopilot - Automated SWE interview preparation planning",
+  "private": true,
+  "workspaces": [
+    "extension",
+    "dashboard",
+    "backend"
+  ],
+  "scripts": {
+    "install:all": "npm install && cd extension && npm install && cd ../dashboard && npm install && cd ../backend && npm install",
+    "build:all": "npm run build --workspace=extension && npm run build --workspace=dashboard && npm run build --workspace=backend",
+    "dev:extension": "npm run dev --workspace=extension",
+    "dev:dashboard": "npm run dev --workspace=dashboard",
+    "dev:backend": "npm run dev --workspace=backend",
+    "lint:all": "npm run lint --workspace=extension && npm run lint --workspace=dashboard && npm run lint --workspace=backend"
+  },
+  "keywords": [
+    "leetcode",
+    "interview-prep",
+    "chrome-extension",
+    "coding-interviews"
+  ],
+  "author": "Saachi",
+  "license": "MIT"
+}
